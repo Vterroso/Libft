@@ -6,7 +6,7 @@
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:42:00 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/08 16:48:59 by vterroso         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:17:56 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned int	i;
-	char			*dest;
+	size_t	i;
+	char	*dest;
 
 	i = 0;
 	dest = b;
