@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 12:53:11 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/16 13:03:08 by vterroso         ###   ########.fr       */
+/*   Created: 2023/03/16 14:51:18 by vterroso          #+#    #+#             */
+/*   Updated: 2023/03/16 16:30:35 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+int	count_words(char const *s, char c)
 {
-	int		i;
-	char	*dest;
+	int	count;
 
-	i = 0;
-	dest = (char *)malloc(ft_strlen(src) + 1 * sizeof(char));
-	if (dest == NULL)
-		return (0);
-	while (src[i])
+	count = 0;
+	while (*s)
 	{
-		dest[i] = src[i];
-		i++;
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s && *s != c)  
+			s++;
+		
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (count);
+}
+/*
+char	**ft_split(char const *s, char c)
+{
+	
+}*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char *str = "Hola amigo mio";
+    char c = 40;
+    printf("%d\n", count_words(str, c));
+
+    return 0;
 }
