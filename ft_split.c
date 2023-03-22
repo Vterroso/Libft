@@ -6,42 +6,72 @@
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:51:18 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/16 16:30:35 by vterroso         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:50:24 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	count;
+	int	i;
 
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
 			count++;
-		while (*s && *s != c)  
-			s++;
-		
+		while (s[i] != '\0' && s[i] != c)
+			i++;
 	}
 	return (count);
 }
-/*
+
+static char	*next_word(char const **s, char c)
+{
+	char	*start;
+	char	*end;
+	char	*word;
+
+	while (**s && **s == c)
+		(*s)++;
+	start = (char *)*s;
+	while (**s && **s != c)
+		(*s)++;
+	end = (char *)*s;
+	word = ft_substr(start, 0, end - start);
+	return (word);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	
-}*/
+	int		word_count;
+	char	**words;
+	int		i;
 
-#include <stdio.h>
-
-int main(void)
-{
-    char *str = "Hola amigo mio";
-    char c = 40;
-    printf("%d\n", count_words(str, c));
-
-    return 0;
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	words = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!words)
+		return (NULL);
+	i = 0;
+	while (i < word_count)
+	{
+		words[i] = next_word(&s, c);
+		if (!words[i])
+		{
+			while (i-- > 0)
+				free(words[i]);
+			free(words);
+			return (NULL);
+		}
+		i++;
+	}
+	words[i] = NULL;
+	return (words);
 }
