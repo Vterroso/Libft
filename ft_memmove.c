@@ -6,13 +6,13 @@
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:23:45 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/08 20:40:08 by vterroso         ###   ########.fr       */
+/*   Updated: 2023/03/27 19:08:33 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	reverse_copy(void *dst, const void *src, size_t len)
+static void	reverse_copy(void *dst, const void *src, size_t len)
 {
 	char		*d;
 	const char	*s;
