@@ -6,7 +6,7 @@
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:05:05 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/28 11:25:58 by vterroso         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:32:24 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (len <= 0)
 		return (ft_strdup(""));
 	return (ft_substr(s1, i, len));
-}/
+}

@@ -23,8 +23,8 @@ all:		$(NAME)
 $(NAME):	$(OBJS) $(INCLUDE)
 	@$(LIB) $(NAME) $(OBJS)
 
-bonus: $(OBJS_BONUS) $(INCLUDE)
-	@$(LIB) $(NAME) $(OBJS_BONUS)
+bonus: $(OBJS_BONUS)  $(OBJS) $(INCLUDE)
+	@$(LIB) $(NAME) $(OBJS_BONUS) $(OBJS)
 
 clean:
 	@$(RM) $(OBJS_BONUS) $(OBJS)
@@ -34,4 +34,6 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: clean fclean re
+reb:		fclean bonus
+
+.PHONY: all bonus clean fclean re
