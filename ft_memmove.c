@@ -12,20 +12,6 @@
 
 #include "libft.h"
 
-static void	reverse_copy(void *dst, const void *src, size_t len)
-{
-	char		*d;
-	const char	*s;
-
-	d = dst;
-	s = src;
-	while (len > 0)
-	{
-		d[len - 1] = s[len - 1];
-		len--;
-	}
-}
-
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t		i;
@@ -47,7 +33,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		reverse_copy(dst, src, len);
+		while (len-- > 0)
+			d[len] = s[len];
 	}
 	return (dst);
 }
