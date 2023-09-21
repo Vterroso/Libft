@@ -6,7 +6,7 @@
 /*   By: vterroso <vterroso@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:23:07 by vterroso          #+#    #+#             */
-/*   Updated: 2023/03/09 18:15:18 by vterroso         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:41:34 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (ptr1[i] != ptr2[i])
 			return (ptr1[i] - ptr2[i]);
-	i++;
+		i++;
 	}
 	return (0);
 }

@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vterroso <vterroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 19:13:19 by vterroso          #+#    #+#             */
-/*   Updated: 2023/09/21 12:17:34 by vterroso         ###   ########.fr       */
+/*   Created: 2023/05/03 17:13:51 by vterroso          #+#    #+#             */
+/*   Updated: 2023/09/21 14:15:59 by vterroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
 
-int	ft_atoi(const char *str)
-{
-	int	res;
-	int	sign;
-	int	i;
+int	ft_printf(char const *str, ...);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr(int nb);
+int	ft_ptr(unsigned long long nb);
+int	ft_unsigned_len(unsigned int nb);
+int	ft_unsigned(unsigned int nb);
+int	ft_hexa(unsigned int nb, char format);
+int	ft_hexa_len(unsigned int nb);
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (res * sign);
-}
+#endif
